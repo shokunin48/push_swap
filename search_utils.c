@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 23:12:44 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/10 00:20:44 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/11 16:33:43 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	find_max(t_stack *stack_a)
 
 	temp = stack_a;
 	tmp = temp->data;
-	while (temp->next)
+	while (temp)
 	{
 		if (temp->data > tmp)
 			tmp = temp->data;

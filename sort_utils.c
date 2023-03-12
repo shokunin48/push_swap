@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:31:38 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/10 01:39:32 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/12 20:49:34 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,40 @@ int	find_pos_in_a(t_stack *a, int elem)
 {
 	int		count;
 	t_stack	*tmp;
+	int		size;
 
+	size = size_of_stack(a);
 	tmp = stack_last_node(a);
 	count = 1;
 	if ((a->data > elem && tmp->data < elem))
 		count = 1;
 	else
-		while (a)
+	{
+		while (a->next && !(a->data < elem && a->next->data > elem))
 		{
-			if (!(a->data < elem && a->next->data > elem))
-				count++;
-			else
-				break ;
+			count++;
 			a = a->next;
 		}
+	}
+	if (count > size / 2)
+		return (count - size);
 	return (count);
 }
 
-int	find_pos_in_b(t_stack **b, int elem)
+int	find_pos_in_b(t_stack *b, int elem)
 {
-	int		count;
-	t_stack	*tmp;
+	int	count;
+	int	size;
 
+	size = size_of_stack(b);
 	count = 0;
-	tmp = *b;
-	//printf("%d\n", tmp->data);
-	//printf("%d\n", elem);
-	while (tmp->data != elem)
+	while (b->data != elem)
 	{
 		count++;
-		tmp = tmp->next;
+		b = b->next;
 	}
+	if (count > size / 2)
+		return (count - size);
 	return (count);
 }
 
@@ -62,10 +65,41 @@ void	move_to_b(t_stack **stack_a, t_stack **stack_b)
 	//printf("min: %d , max: %d , mid %d\n", min, max, mid);
 	while (size_of_stack(*stack_a) != 3)
 	{
-		if ((*stack_a)->data != min
-			&& (*stack_a)->data != max)
+		if ((*stack_a)->data != min && (*stack_a)->data != max
+			&& (*stack_a)->data != mid)
 			pb(stack_b, stack_a);
-		ra(stack_a);
+		else
+			ra(stack_a);
 	}
 	small_sort(stack_a);
+}
+
+int	make_positive(int a)
+{
+	if (a < 0)
+		return (-a);
+	return (a);
+}
+
+void	find_best_move(t_stack **a, t_stack **b)
+{
+	t_stack	*tmp;
+	int		best;
+	int		move;
+	int		pos;
+
+	tmp = *b;
+	best = make_positive(tmp->pos) + make_positive(tmp->move);
+	tmp = tmp->next;
+	while (tmp)
+	{
+		if (make_positive(tmp->pos) + make_positive(tmp->move) < best)
+		{
+			best = make_positive(tmp->pos) + make_positive(tmp->move);
+			move = tmp->move;
+			pos = tmp->pos;
+		}
+		tmp = tmp->next;
+	}
+	do_move(a, b, pos, move);
 }

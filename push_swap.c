@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 17:05:50 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/07 22:47:23 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/12 17:33:15 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ int	main(int argc, char **argv)
 	puts("\n");
 	if (argc == 4)
 		small_sort(&stack_a);
+	else if (argc == 6)
+		sort_five(&stack_a, &stack_b);
 	else
 		sort(&stack_a, &stack_b);
 	puts("\na");

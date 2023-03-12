@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 17:06:22 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/10 01:12:52 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/12 19:47:14 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,14 @@ void	small_sort(t_stack **stack);
 void	sort(t_stack **stack_a, t_stack **stack_b);
 int		is_sorted(t_stack *stack);
 int		find_pos_in_a(t_stack *a, int elem);
-int		find_pos_in_b(t_stack **b, int elem);
+int		find_pos_in_b(t_stack *b, int elem);
 void	move_to_b(t_stack **stack_a, t_stack **stack_b);
 void	find_cost(t_stack **a, t_stack **b);
+void	move_to_a(t_stack **a, t_stack **b);
+void	last_move(t_stack **a);
+void	sort_five(t_stack **stack_a, t_stack **stack_b);
+void	do_move(t_stack **a, t_stack **b, int pos, int move);
+void	find_best_move(t_stack **a, t_stack **b);
 
 void	sa(t_stack **stack_a);
 void	sb(t_stack **stack_b);
