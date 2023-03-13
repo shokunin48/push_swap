@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:31:38 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/12 20:49:34 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/13 13:09:07 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	find_pos_in_a(t_stack *a, int elem)
 	tmp = stack_last_node(a);
 	count = 1;
 	if ((a->data > elem && tmp->data < elem))
-		count = 1;
+		count = 0;
 	else
 	{
 		while (a->next && !(a->data < elem && a->next->data > elem))
@@ -90,14 +90,16 @@ void	find_best_move(t_stack **a, t_stack **b)
 
 	tmp = *b;
 	best = make_positive(tmp->pos) + make_positive(tmp->move);
+	pos = tmp->pos;
+	move = tmp->move;
 	tmp = tmp->next;
 	while (tmp)
 	{
 		if (make_positive(tmp->pos) + make_positive(tmp->move) < best)
 		{
 			best = make_positive(tmp->pos) + make_positive(tmp->move);
-			move = tmp->move;
 			pos = tmp->pos;
+			move = tmp->move;
 		}
 		tmp = tmp->next;
 	}

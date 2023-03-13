@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 00:26:49 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/12 20:57:47 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/13 13:32:09 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,15 +69,15 @@ static void	rotate_b(t_stack **b, int *move)
 {
 	while (*move)
 	{
-		if (*move > 0)
-		{
-			rb(b);
-			(*move)--;
-		}
-		else if (*move < 0)
+		if (*move < 0)
 		{
 			rrb(b);
 			(*move)++;
+		}
+		else if (*move > 0)
+		{
+			rb(b);
+			(*move)--;
 		}
 	}
 }
@@ -95,29 +95,35 @@ void	do_move(t_stack **a, t_stack **b, int pos, int move)
 
 void	last_move(t_stack **a)
 {
-	int	min;
-	int	count;
+	int		min;
+	int		count;
+	int		size;
+	t_stack	*tmp;
 
 	min = find_min(*a);
+	size = size_of_stack(*a);
+	tmp = *a;
 	while ((*a)->data != min)
 	{
-		count++;
-		*a = (*a)->next;
+		rra(a);
 	}
-	if (count < size_of_stack(*a))
-	{
-		while (count > 0)
-		{
-			ra(a);
-			count--;
-		}
-	}
-	else
-	{
-		while (count < 0)
-		{
-			rra(a);
-			count++;
-		}
-	}
+	// 	count++;
+	// 	tmp = tmp->next;
+	// }
+	// if (count < (size / 2))
+	// {
+	// 	while (count > 0)
+	// 	{
+	// 		ra(a);
+	// 		count--;
+	// 	}
+	// }
+	// else
+	// {
+	// 	while ((count - size) < 0)
+	// 	{
+	// 		rra(a);
+	// 		count++;
+	// 	}
+	// }
 }

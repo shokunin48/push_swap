@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 23:12:44 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/11 16:33:43 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/13 13:00:29 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	*make_arr(t_stack *a)
 	int	i;
 
 	i = 0;
-	arr = malloc ((size_of_stack(a) * sizeof(int)) + 1);
+	arr = malloc ((size_of_stack(a) * sizeof(int)));
 	while (a)
 	{
 		arr[i] = a->data;
@@ -52,10 +52,11 @@ int	find_mid(t_stack *a)
 	arr = make_arr(a);
 	size = size_arr(arr);
 	i = 0;
-	while (i < size - 1)
+	while (i < size)
 	{
 		if (arr[i] > arr[i + 1])
 		{
+			printf("%d\n", arr[i]);
 			tmp = arr[i];
 			arr[i] = arr[i + 1];
 			arr[i + 1] = tmp;

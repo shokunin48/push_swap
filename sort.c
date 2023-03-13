@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 00:20:12 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/12 20:57:22 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/13 13:25:12 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,16 @@ void	sort_five(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-void	sort(t_stack **stack_a, t_stack **stack_b)
+void	sort(t_stack **a, t_stack **b)
 {
 	int		move;
 	int		pos;
 
-	move_to_b(stack_a, stack_b);
-	while (*stack_b)
+	move_to_b(a, b);
+	while (*b)
 	{
-		find_cost(stack_a, stack_b);
-		find_best_move(stack_a, stack_b);
+		find_cost(a, b);
+		find_best_move(a, b);
 	}
-	//last_move(stack_a);
+	last_move(a);
 }
