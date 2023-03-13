@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 23:38:54 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/07 15:29:56 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/13 21:32:43 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ss(t_stack **stack1, t_stack **stack2)
 	swap(stack1);
 	swap(stack2);
 	puts("ss");
-	counter++;
+	//counter++;
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
@@ -25,7 +25,7 @@ void	rrr(t_stack **stack_a, t_stack **stack_b)
 	rra(stack_a);
 	rrb(stack_b);
 	puts("rrr");
-	counter++;
+	//counter++;
 }
 
 void	rr(t_stack **stack_a, t_stack **stack_b)
@@ -33,7 +33,7 @@ void	rr(t_stack **stack_a, t_stack **stack_b)
 	ra(stack_a);
 	rb(stack_b);
 	puts("rr");
-	counter++;
+	//counter++;
 }
 
 void	swap_stack(t_stack **a, t_stack **b)

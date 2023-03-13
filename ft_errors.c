@@ -6,49 +6,47 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 22:13:19 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/05 22:48:44 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/13 20:54:33 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_doubles(char **av)
+void	free_stack(t_stack **stack)
 {
-	int		i;
-	int		j;
-	int		index;
-	char	**result;
+	t_stack	*tmp;
 
-	i = 1;
-	index = 1;
-	while (av[i])
+	if (!stack || !(*stack))
+		return ;
+	while (*stack)
 	{
-		j = 1;
-		while (av[j])
-		{
-			if (av[j] != av[i] && j != i)
-			{
-				result[index] = av[j];
-				index++;
-			}
-			j++;
-		}
-		i++;
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
 	}
+	*stack = NULL;
 }
 
-int	check_if_int(char **av)
+void	check_doubles(t_stack *a)
 {
-	int			i;
-	long int	num;
+	t_stack	*tmp;
+	int		data;
 
-	i = 1;
-	while (av[i])
+	tmp = a;
+	while (a)
 	{
-		num = ft_atoi(av[i]);
-		if (!(num > INT_MAX && num < INT_MIN))
-			return (0);
-		i++;
+		data = a->data;
+		tmp = a->next;
+		while (tmp)
+		{
+			if (tmp->data == data)
+			{
+				ft_printstr("Error\n");
+				free(a);
+				exit (1);
+			}
+			tmp = tmp->next;
+		}
+		a = a->next;
 	}
-	return (1);
 }

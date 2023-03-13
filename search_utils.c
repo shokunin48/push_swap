@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 23:12:44 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/13 13:00:29 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:21:25 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int	find_mid(t_stack *a)
 	{
 		if (arr[i] > arr[i + 1])
 		{
-			printf("%d\n", arr[i]);
 			tmp = arr[i];
 			arr[i] = arr[i + 1];
 			arr[i + 1] = tmp;

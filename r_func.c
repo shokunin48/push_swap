@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 20:32:54 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/06 18:43:16 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/13 22:03:13 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	ra(t_stack **stack_a)
 	bottom = stack_last_node(*stack_a);
 	tmp->next = NULL;
 	bottom->next = tmp;
-	puts("ra");
-	counter++;
+	ft_printstr("ra\n");
+	//counter++;
 }
 
 void	rb(t_stack **stack_b)
@@ -36,13 +36,12 @@ void	rb(t_stack **stack_b)
 	bottom = stack_last_node(*stack_b);
 	tmp->next = NULL;
 	bottom->next = tmp;
-	puts("rb");
-	counter++;
+	ft_printstr("rb\n");
+	//counter++;
 }
 
 void	rra(t_stack **stack_a)
 {
-	t_stack	*tmp;
 	t_stack	*bottom;
 	t_stack	*bottom2;
 
@@ -51,13 +50,12 @@ void	rra(t_stack **stack_a)
 	bottom->next = *stack_a;
 	*stack_a = bottom;
 	bottom2->next = NULL;
-	puts("rra");
-	counter++;
+	ft_printstr("rra\n");
+	//counter++;
 }
 
 void	rrb(t_stack **stack_b)
 {
-	t_stack	*tmp;
 	t_stack	*bottom;
 	t_stack	*bottom2;
 
@@ -66,6 +64,6 @@ void	rrb(t_stack **stack_b)
 	bottom->next = *stack_b;
 	*stack_b = bottom;
 	bottom2->next = NULL;
-	puts("rrb");
-	counter++;
+	ft_printstr("rrb\n");
+	//counter++;
 }
