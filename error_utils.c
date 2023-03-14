@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 19:29:25 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/13 21:01:24 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/14 18:34:45 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	is_number(char *av)
 
 void	is_integer(long num)
 {
-	if (num > INT_MAX && num < INT_MIN)
+	if (num > INT_MAX || num < INT_MIN)
 	{
 		ft_printstr("Error\n");
 		exit (1);
@@ -44,26 +44,10 @@ void	check_input(char **av)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	while (av[i])
 	{
 		if (!(is_number(av[i])))
-		{
-			ft_printstr("Error\n");
-			exit (1);
-		}
-		i++;
-	}
-}
-
-void	check_arg_len(char **av)
-{
-	int	i;
-
-	i = 0;
-	while (av[i])
-	{
-		if (ft_strlen(av[i]) > 10)
 		{
 			ft_printstr("Error\n");
 			exit (1);

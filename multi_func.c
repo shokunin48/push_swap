@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 23:38:54 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/13 21:32:43 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/14 18:47:56 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,22 @@ void	ss(t_stack **stack1, t_stack **stack2)
 {
 	swap(stack1);
 	swap(stack2);
-	puts("ss");
+	ft_printstr("ss\n");
 	//counter++;
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
-	rra(stack_a);
-	rrb(stack_b);
-	puts("rrr");
+	reverse_silent(stack_a);
+	reverse_silent(stack_b);
+	ft_printstr("rrr\n");
 	//counter++;
 }
 
 void	rr(t_stack **stack_a, t_stack **stack_b)
 {
-	ra(stack_a);
-	rb(stack_b);
-	puts("rr");
+	rotate_silent(stack_a);
+	rotate_silent(stack_b);
+	ft_printstr("rr\n");
 	//counter++;
-}
-
-void	swap_stack(t_stack **a, t_stack **b)
-{
-	while ((*b))
-	{
-		pa(b, a);
-		*b = (*b)->next;
-	}
 }

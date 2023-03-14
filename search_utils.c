@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 23:12:44 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/13 14:21:25 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/14 19:49:02 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	find_mid(t_stack *a)
 	int	i;
 	int	tmp;
 	int	size;
+	int	mid;
 
 	i = 0;
 	tmp = 0;
@@ -64,7 +65,9 @@ int	find_mid(t_stack *a)
 		else
 			i++;
 	}
-	return (arr[size / 2]);
+	mid = arr[size / 2];
+	free(arr);
+	return (mid);
 }
 
 int	find_max(t_stack *stack_a)

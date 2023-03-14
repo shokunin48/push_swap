@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 21:37:48 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/10 12:54:59 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/14 20:19:32 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ int	is_sorted(t_stack *stack)
 {
 	while (stack->next != NULL)
 	{
-		if (stack->data > stack->next->data)
+		if (stack->data < stack->next->data)
 			stack = stack->next;
 		else
-			return (1);
+			return (0);
 	}
-	return (0);
+	return (1);
 }

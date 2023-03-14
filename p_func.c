@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 19:39:48 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/13 21:31:57 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/14 20:05:36 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 void	push(t_stack **dest, t_stack **add)
 {
-	int	tmp;
+	int		tmp;
+	t_stack	*tmp2;
 
 	tmp = (*add)->data;
+	tmp2 = *add;
 	*add = (*add)->next;
+	free(tmp2);
 	ft_push_node_bottom(dest, tmp);
 }
 

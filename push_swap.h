@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 17:06:22 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/13 21:31:22 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/14 18:04:39 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	check_if_int(char **av);
 void	ft_print_stack(t_stack *t);
 void	swap(t_stack **stack);
 int		size_of_stack(t_stack *stack);
-void	swap_stack(t_stack **a, t_stack **b);
 int		find_min(t_stack *stack_a);
 int		find_mid(t_stack *a);
 void	small_sort(t_stack **stack);
@@ -51,9 +50,11 @@ void	do_move(t_stack **a, t_stack **b, int pos, int move);
 void	find_best_move(t_stack **a, t_stack **b);
 void	free_stack(t_stack **stack);
 int		*make_arr(t_stack *a);
-void	check_arg_len(char **av);
 void	is_integer(long num);
 void	two_sort(t_stack **stack);
+void	check_input(char **av);
+void	rotate_silent(t_stack **stack_a);
+void	reverse_silent(t_stack **stack_a);
 
 void	sa(t_stack **stack_a);
 void	sb(t_stack **stack_b);

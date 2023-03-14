@@ -6,7 +6,7 @@
 #    By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 21:51:04 by ibellash          #+#    #+#              #
-#    Updated: 2023/03/14 15:45:27 by ibellash         ###   ########.fr        #
+#    Updated: 2023/03/14 17:53:39 by ibellash         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,12 @@ LIB = libft.a
 PRINT_F = ft_printf
 PRINT = libftprintf.a 
 SRCS = do_move.c error_utils.c ft_errors.c multi_func.c \
-				p_func.c r_func.c s_func.c push_swap.c \
+	silent_func.c p_func.c r_func.c s_func.c push_swap.c \
 			search_utils.c sort_utils.c sort.c utils.c
 
 OBJS = $(SRCS:.c=.o)
 
-CC = clang
+CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 

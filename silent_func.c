@@ -1,51 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_errors.c                                        :+:      :+:    :+:   */
+/*   silent_func.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/02 22:13:19 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/14 20:18:04 by ibellash         ###   ########.fr       */
+/*   Created: 2023/03/14 17:48:59 by ibellash          #+#    #+#             */
+/*   Updated: 2023/03/14 17:59:22 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(t_stack **stack)
+void	rotate_silent(t_stack **stack_a)
 {
 	t_stack	*tmp;
+	t_stack	*bottom;
 
-	if (!stack || !(*stack))
-		return ;
-	while (*stack)
-	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
-	}
+	tmp = *stack_a;
+	*stack_a = (*stack_a)->next;
+	bottom = stack_last_node(*stack_a);
+	tmp->next = NULL;
+	bottom->next = tmp;
 }
 
-void	check_doubles(t_stack *a)
+void	reverse_silent(t_stack **stack_a)
 {
-	t_stack	*tmp;
-	int		data;
+	t_stack	*bottom;
+	t_stack	*bottom2;
 
-	tmp = a;
-	while (a)
-	{
-		data = a->data;
-		tmp = a->next;
-		while (tmp)
-		{
-			if (tmp->data == data)
-			{
-				ft_printstr("Error\n");
-				free_stack(&a);
-				exit (1);
-			}
-			tmp = tmp->next;
-		}
-		a = a->next;
-	}
+	bottom = stack_last_node(*stack_a);
+	bottom2 = stack_before_last_node(*stack_a);
+	bottom->next = *stack_a;
+	*stack_a = bottom;
+	bottom2->next = NULL;
 }
