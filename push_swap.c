@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 17:05:50 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/13 22:04:22 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:46:47 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	stack_a = create_stack(stack_a, argv, argc);
 	check_doubles(stack_a);
-	puts("\n");
 	if (argc == 3)
 		two_sort(&stack_a);
 	else if (argc == 4)
@@ -87,10 +86,10 @@ int	main(int argc, char **argv)
 		sort_five(&stack_a, &stack_b);
 	else
 		sort(&stack_a, &stack_b);
-	// puts("\na");
-	// ft_print_stack(stack_a);
-	// puts("\nb");
-	// ft_print_stack(stack_b);
+	puts("\na");
+	ft_print_stack(stack_a);
+	puts("\nb");
+	ft_print_stack(stack_b);
 	// puts("\n");
 	// printf("%d\n", counter);
 	return (0);

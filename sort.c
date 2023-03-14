@@ -6,11 +6,32 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 00:20:12 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/13 22:04:43 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:34:26 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	last_move(t_stack **a)
+{
+	int		min;
+	int		count;
+	int		size;
+
+	min = find_min(*a);
+	size = size_of_stack(*a);
+	count = find_pos_in_b(*a, min);
+	while (count > 0)
+	{
+		ra(a);
+		count--;
+	}
+	while ((count) < 0)
+	{
+		rra(a);
+		count++;
+	}
+}
 
 void	two_sort(t_stack **stack)
 {
@@ -18,36 +39,30 @@ void	two_sort(t_stack **stack)
 		sa(stack);
 }
 
-void	small_sort(t_stack **stack)
+void	small_sort(t_stack **s)
 {
-	int		max;
-	t_stack	*last;
-
-	last = stack_last_node(*stack);
-	max = find_max(*stack);
-	if ((*stack)->data == max)
+	if ((*s)->data > (*s)->next->data
+		&& (*s)->data < (*s)->next->next->data)
+		sa(s);
+	else if ((*s)->data < (*s)->next->data
+		&& (*s)->data > (*s)->next->next->data)
+		rra(s);
+	else if ((*s)->data > (*s)->next->data
+		&& (*s)->next->data < (*s)->next->next->data)
+		ra(s);
+	else if ((*s)->data < (*s)->next->data
+		&& (*s)->data < (*s)->next->next->data
+		&& (*s)->next->data > (*s)->next->next->data)
 	{
-		if ((*stack)->next->data < last->data)
-			ra(stack);
-		else
-		{
-			ra(stack);
-			sa(stack);
-		}
+		rra(s);
+		sa(s);
 	}
-	else if ((*stack)->next->data == max)
+	else if ((*s)->data > (*s)->next->data
+		&& (*s)->next->data > (*s)->next->next->data)
 	{
-		if ((*stack)->data > last->data)
-			rra(stack);
-		else
-		{
-			rra(stack);
-			sa(stack);
-		}
+		ra(s);
+		sa(s);
 	}
-	else if (last->data == max)
-		if ((*stack)->data > (*stack)->next->data)
-			sa(stack);
 }
 
 void	sort_five(t_stack **stack_a, t_stack **stack_b)
