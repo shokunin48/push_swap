@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:31:38 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/14 19:35:42 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:59:58 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void	move_to_b(t_stack **stack_a, t_stack **stack_b)
 	min = find_min(*stack_a);
 	max = find_max(*stack_a);
 	mid = find_mid(*stack_a);
-	//printf("min: %d , max: %d , mid %d\n", min, max, mid);
 	while (size_of_stack(*stack_a) != 3)
 	{
 		if ((*stack_a)->data != min && (*stack_a)->data != max

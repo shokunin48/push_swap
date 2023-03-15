@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 19:39:48 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/14 20:05:36 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:59:09 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,10 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 {
 	push(stack_a, stack_b);
 	ft_printstr("pa\n");
-	//counter++;
 }
 
 void	pb(t_stack **stack_b, t_stack **stack_a)
 {
 	push(stack_b, stack_a);
 	ft_printstr("pb\n");
-	//counter++;
 }

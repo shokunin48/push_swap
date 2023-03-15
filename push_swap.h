@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 17:06:22 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/14 18:04:39 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:02:09 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,14 @@ typedef struct s_stack
 
 t_stack	*stack_last_node(t_stack *stack);
 t_stack	*stack_before_last_node(t_stack *stack);
+t_stack	*create_stack(t_stack *stack, char **argv, int argc);
 void	ft_push_node_bottom(t_stack **stack, int a);
-int		find_max(t_stack *stack_a);
 void	check_doubles(t_stack *a);
 void	check_if_int(char **av);
 void	ft_print_stack(t_stack *t);
 void	swap(t_stack **stack);
-int		size_of_stack(t_stack *stack);
-int		find_min(t_stack *stack_a);
-int		find_mid(t_stack *a);
 void	small_sort(t_stack **stack);
 void	sort(t_stack **stack_a, t_stack **stack_b);
-int		is_sorted(t_stack *stack);
-int		find_pos_in_a(t_stack *a, int elem);
-int		find_pos_in_b(t_stack *b, int elem);
 void	move_to_b(t_stack **stack_a, t_stack **stack_b);
 void	find_cost(t_stack **a, t_stack **b);
 void	move_to_a(t_stack **a, t_stack **b);
@@ -49,12 +43,24 @@ void	sort_five(t_stack **stack_a, t_stack **stack_b);
 void	do_move(t_stack **a, t_stack **b, int pos, int move);
 void	find_best_move(t_stack **a, t_stack **b);
 void	free_stack(t_stack **stack);
-int		*make_arr(t_stack *a);
 void	is_integer(long num);
 void	two_sort(t_stack **stack);
 void	check_input(char **av);
 void	rotate_silent(t_stack **stack_a);
 void	reverse_silent(t_stack **stack_a);
+void	push(t_stack **dest, t_stack **add);
+void	free_stack(t_stack **stack);
+void	double_silent_rotate(t_stack **stack_a, t_stack **stack_b);
+void	double_silent_reverse_rotate(t_stack **stack_a, t_stack **stack_b);
+void	double_silent_swap(t_stack **stack_a, t_stack **stack_b);
+int		find_max(t_stack *stack_a);
+int		size_of_stack(t_stack *stack);
+int		find_min(t_stack *stack_a);
+int		find_mid(t_stack *a);
+int		is_sorted(t_stack *stack);
+int		find_pos_in_a(t_stack *a, int elem);
+int		find_pos_in_b(t_stack *b, int elem);
+int		*make_arr(t_stack *a);
 
 void	sa(t_stack **stack_a);
 void	sb(t_stack **stack_b);

@@ -6,7 +6,7 @@
 #    By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/13 21:51:04 by ibellash          #+#    #+#              #
-#    Updated: 2023/03/14 17:53:39 by ibellash         ###   ########.fr        #
+#    Updated: 2023/03/15 18:11:57 by ibellash         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,14 @@ PRINT_F = ft_printf
 PRINT = libftprintf.a 
 SRCS = do_move.c error_utils.c ft_errors.c multi_func.c \
 	silent_func.c p_func.c r_func.c s_func.c push_swap.c \
-			search_utils.c sort_utils.c sort.c utils.c
+			search_utils.c sort_utils.c sort.c utils.c input.c
+
+BONUS_SRCS = do_move.c error_utils.c ft_errors.c multi_func.c \
+	silent_func.c p_func.c r_func.c s_func.c checker.c \
+			search_utils.c sort_utils.c sort.c utils.c input.c
 
 OBJS = $(SRCS:.c=.o)
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 CC = gcc
 
@@ -27,6 +32,9 @@ CFLAGS = -Wall -Wextra -Werror
 
 $(NAME): $(OBJS) $(LIB_FT)/$(LIB) $(PRINT_F)/$(PRINT)
 	$(CC) $(CFLAGS) $(LIB_FT)/$(LIB) $(PRINT_F)/$(PRINT) $(OBJS) -o $(NAME)
+
+bonus: $(BONUS_OBJS) $(LIB_FT)/$(LIB) $(PRINT_F)/$(PRINT)
+	$(CC) $(CFLAGS) $(LIB_FT)/$(LIB) $(PRINT_F)/$(PRINT) $(BONUS_OBJS) -o checker
 
 $(LIB_FT)/$(LIB):
 	@make -C $(LIB_FT)
@@ -37,11 +45,15 @@ $(PRINT_F)/$(PRINT):
 all: $(NAME)
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJS) checker.o
+	@make -C $(LIB_FT) clean
+	@make -C $(PRINT_F) clean
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) checker
+	@make -C $(LIB_FT) fclean
+	@make -C $(PRINT_F) fclean
 	
-re: fclean all 
+re: fclean all
 
 .PHONY: all clean fclean re

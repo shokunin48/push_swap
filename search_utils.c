@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 23:12:44 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/14 19:49:02 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:03:07 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,13 @@ int	find_mid(t_stack *a)
 	int	*arr;
 	int	i;
 	int	tmp;
-	int	size;
 	int	mid;
 
 	i = 0;
 	tmp = 0;
 	arr = make_arr(a);
-	size = size_arr(arr);
 	i = 0;
-	while (i < size)
+	while (i < size_arr(arr))
 	{
 		if (arr[i] > arr[i + 1])
 		{
@@ -65,7 +63,7 @@ int	find_mid(t_stack *a)
 		else
 			i++;
 	}
-	mid = arr[size / 2];
+	mid = arr[size_arr(arr) / 2];
 	free(arr);
 	return (mid);
 }

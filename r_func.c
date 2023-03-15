@@ -6,7 +6,7 @@
 /*   By: ibellash <ibellash@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 20:32:54 by ibellash          #+#    #+#             */
-/*   Updated: 2023/03/14 17:43:38 by ibellash         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:00:58 by ibellash         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	ra(t_stack **stack_a)
 	tmp->next = NULL;
 	bottom->next = tmp;
 	ft_printstr("ra\n");
-	//counter++;
 }
 
 void	rb(t_stack **stack_b)
@@ -37,7 +36,6 @@ void	rb(t_stack **stack_b)
 	tmp->next = NULL;
 	bottom->next = tmp;
 	ft_printstr("rb\n");
-	//counter++;
 }
 
 void	rra(t_stack **stack_a)
@@ -51,7 +49,6 @@ void	rra(t_stack **stack_a)
 	*stack_a = bottom;
 	bottom2->next = NULL;
 	ft_printstr("rra\n");
-	//counter++;
 }
 
 void	rrb(t_stack **stack_b)
@@ -65,5 +62,4 @@ void	rrb(t_stack **stack_b)
 	*stack_b = bottom;
 	bottom2->next = NULL;
 	ft_printstr("rrb\n");
-	//counter++;
 }
